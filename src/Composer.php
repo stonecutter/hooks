@@ -72,7 +72,7 @@ class Composer
     public function save()
     {
         if ($this->changed) {
-            $this->filesystem->put($this->location, $this->encode($this->items->all()));
+            $this->filesystem->put($this->location, $this->encode($this->items->all())."\n");
 
             $this->changed = false;
         }
