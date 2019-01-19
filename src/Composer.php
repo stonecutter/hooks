@@ -30,9 +30,11 @@ class Composer
             $this->items['repositories'] = [];
         }
 
-        $this->items->set('repositories.'.$name, $info);
+        if ($this->items->get('repositories.'.$name) != $info) {
+            $this->items->set('repositories.'.$name, $info);
 
-        $this->changed = true;
+            $this->changed = true;
+        }
 
         return $this;
     }
